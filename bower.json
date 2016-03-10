@@ -1,0 +1,41 @@
+{
+    "name": "Mba.ux.SqlNative",
+    "version": "0.0.17",
+    "homepage": "https://github.com/bluebile/Mba.ux.SqlNative",
+    "authors": [
+        "Bluebile <info@bluebile.com>"
+    ],
+    "description": "Suporte ao banco nativo do device",
+    "main": [
+        "SqlNative.js"
+    ],
+    "keywords": [
+        "senchatouch",
+        "extjs",
+        "ux",
+        "model",
+        "data",
+        "sql",
+        "sqlite"
+    ],
+    "license": "MIT",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "demo",
+        "ux",
+        "**/*.*~",
+        "gulpfile.js",
+        "bower.json",
+        "package.json",
+        "test",
+        "tests"
+    ],
+    "dependencies": {
+        "Mba.ux.Sql": "v0.0.20"
+    },
+    "cordova" : {
+        "id_or_url_plugin": "https://github.com/bluebile/Cordova-sqlite-storage.git"
+    }
+}
