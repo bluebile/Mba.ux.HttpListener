@@ -1,6 +1,6 @@
 /**
- * @class Sucupira.util.HttpListenerManagerDefault
- * @alternateClassName Mba.HttpEvents
+ * @class Mba.ux.HttpListener.Manager
+ * @alternateClassName Mba.HttpListener
  */
 Ext.define('Mba.ux.HttpListener.Manager', {
 

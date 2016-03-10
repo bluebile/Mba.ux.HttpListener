@@ -1,6 +1,6 @@
 {
-    "name": "Mba.ux.SqlNative",
-    "version": "0.0.17",
+    "name": "Mba.ux.HttpListener",
+    "version": "0.0.1",
     "dependencies": {
         "gulp": "^3.8.8",
         "gulp-jshint": "https://github.com/bluebile/gulp-jshint.git",

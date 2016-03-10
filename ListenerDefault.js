@@ -1,5 +1,5 @@
 /**
- * @class Mba.ux.HttpListener.HttpListener.Default
+ * @class Mba.ux.HttpListener.Default
  * @extends Mba.ux.HttpListener.ListenerAbstract
  */
 Ext.define('Mba.ux.HttpListener.Default', {

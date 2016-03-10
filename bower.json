@@ -1,13 +1,13 @@
 {
-    "name": "Mba.ux.SqlNative",
-    "version": "0.0.17",
-    "homepage": "https://github.com/bluebile/Mba.ux.SqlNative",
+    "name": "Mba.ux.HttpListener",
+    "version": "0.0.1",
+    "homepage": "https://github.com/bluebile/Mba.ux.HttpListener",
     "authors": [
         "Bluebile <info@bluebile.com>"
     ],
-    "description": "Suporte ao banco nativo do device",
+    "description": "Escutas eventos do http de acordo com o status code",
     "main": [
-        "SqlNative.js"
+        "Manager.js"
     ],
     "keywords": [
         "senchatouch",
@@ -31,11 +31,5 @@
         "package.json",
         "test",
         "tests"
-    ],
-    "dependencies": {
-        "Mba.ux.Sql": "v0.0.20"
-    },
-    "cordova" : {
-        "id_or_url_plugin": "https://github.com/bluebile/Cordova-sqlite-storage.git"
-    }
+    ]
 }

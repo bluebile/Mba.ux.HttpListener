@@ -3,7 +3,7 @@
  */
 Ext.define('Mba.ux.HttpListener.rule.Resource', {
 
-    extend: 'Sucupira.util.HttpListenerRuleDefault',
+    extend: 'Mba.ux.HttpListener.rule.Default',
     maps: [],
 
     /**
@@ -17,7 +17,7 @@ Ext.define('Mba.ux.HttpListener.rule.Resource', {
             throw 'Listener not object.';
         }
 
-        if (!(listener instanceof Sucupira.util.HttpListenerAbstract)) {
+        if (!(listener instanceof Mba.ux.HttpListener.ListenerAbstract)) {
             throw 'Not object.';
         }
 

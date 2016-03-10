@@ -51,10 +51,10 @@ Ext.define('Mba.ux.HttpListener.rule.Default', {
         }
 
         if (Ext.isNumber(event)) {
-            event = Ext.Object.getKey(Sucupira.util.HttpListenerRuleDefault.EVENTS, event);
+            event = Ext.Object.getKey(Mba.ux.HttpListener.rule.Default.EVENTS, event);
         }
 
-        if (! (event in Sucupira.util.HttpListenerRuleDefault.EVENTS)) {
+        if (! (event in Mba.ux.HttpListener.rule.Default.EVENTS)) {
             console.log('Http code not implemented');
             return false;
         }
