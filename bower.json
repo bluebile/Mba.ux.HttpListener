@@ -32,5 +32,5 @@
         "test",
         "tests"
     ],
-    requires: [ "Mba.ux.HttpListener.Manager" ] 
+    "requires": [ "Mba.ux.HttpListener.Manager" ]
 }
