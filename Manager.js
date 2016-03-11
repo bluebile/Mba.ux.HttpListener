@@ -72,7 +72,8 @@ Ext.define('Mba.ux.HttpListener.Manager', {
         global = this.getGlobal();
 
         if (!global) {
-            throw 'Listener global is required.';
+            this.initGetGlobal();
+            global = this.getGlobal();
         }
 
         global.fire(response.status, response);
