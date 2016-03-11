@@ -36,7 +36,7 @@ Ext.define('Mba.ux.HttpListener.Manager', {
     updateGlobal: function(global, currentGlobal)
     {
         if (!global.getListener()) {
-            var listenerDefault = Ext.create('Mba.ux.HttpListener.rule.Default');
+            var listenerDefault = Ext.create('Mba.ux.HttpListener.Default');
             global.setListener(listenerDefault);
         }
     },
@@ -72,7 +72,7 @@ Ext.define('Mba.ux.HttpListener.Manager', {
         global = this.getGlobal();
 
         if (!global) {
-            this.initGetGlobal();
+            this.setGlobal(Ext.create('Mba.ux.HttpListener.rule.Default'));
             global = this.getGlobal();
         }
 
