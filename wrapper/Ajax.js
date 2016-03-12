@@ -7,11 +7,11 @@ Ext.define('Mba.ux.HttpListener.wrapper.Ajax', {
     extend: 'Mba.ux.HttpListener.wrapper.WrapperAbstract',
 
     getStatus: function() {
-        this.getResponse().status;
+        return this.getResponse().status;
     },
 
     getUrl: function() {
-        this.getResponse().request.options.url;
+        return this.getResponse().request.options.url;
     },
 
     run: function() {
