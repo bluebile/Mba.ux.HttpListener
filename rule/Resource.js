@@ -52,12 +52,12 @@ Ext.define('Mba.ux.HttpListener.rule.Resource', {
     },
 
     // @private
-    filter: function(response)
+    filter: function(wrapper)
     {
         var map;
         for (var i = 0, length = this.mapsCollection.length; i < length; i++) {
             map = this.mapsCollection[i];
-            if (map.rule.test(response.request.options.url)) {
+            if (map.rule.test(wrapper.getUrl())) {
                 this.setListener(Ext.create(map.listener));
                 return true;
             }

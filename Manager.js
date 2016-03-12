@@ -11,6 +11,12 @@ Ext.define('Mba.ux.HttpListener.Manager', {
         'Mba.ux.HttpListener.rule.Default'
     ],
 
+    wrappersClass: {
+        ajax: 'Mba.ux.HttpListener.wrapper.Ajax'
+    },
+
+    wrappersInstances: {},
+
     config: {
         /**
          * @cfg Mba.ux.HttpListener.rule.Resource
@@ -23,48 +29,52 @@ Ext.define('Mba.ux.HttpListener.Manager', {
         global: undefined
     },
 
-    applyResource: function(resource, currentResource)
-    {
+    applyResource: function(resource, currentResource) {
         return Ext.factory(resource, Mba.ux.HttpListener.rule.Resource, currentResource, 'proxy');
     },
 
-    applyGlobal: function(global, currentGlobal)
-    {
+    applyGlobal: function(global, currentGlobal) {
         return Ext.factory(global, Mba.ux.HttpListener.rule.Default, currentGlobal, 'proxy');
     },
 
-    updateGlobal: function(global, currentGlobal)
-    {
+    updateGlobal: function(global, currentGlobal) {
         if (!global.getListener()) {
             var listenerDefault = Ext.create('Mba.ux.HttpListener.Default');
             global.setListener(listenerDefault);
         }
     },
 
-    constructor: function()
-    {
-        this.listenersRequest();
+    addWrapper: function(type) {
+        var className = type, instance;
+
+        if (type in this.wrappersClass) {
+            className = this.wrappersClass[type];
+        }
+
+        if (className in this.wrappersInstances) {
+            return this.wrappersInstances[className];
+        }
+
+        instance = Ext.create(className);
+        this.wrappersInstances[instance.$className] = instance;
+
+        return instance;
     },
 
-    listenersRequest: function()
-    {
-        var me = this,
-            events = [ 'requestcomplete', 'requestexception' ];
-
-        for (var i = 0, length = events.length; i < length; i++) {
-            Ext.Ajax.on(events[i], function(scope, response) {
-                me.parse(response);
-            });
+    run: function() {
+        var instance;
+        for (var wrapper in this.wrappersInstances) {
+            instance = this.wrappersInstances[wrapper];
+            instance.on('run', 'parse');
         }
     },
 
-    parse: function(response)
-    {
+    parse: function(wrapper) {
         var resource = this.getResource(),
             global;
 
         if (resource) {
-            if (resource.fire(response.status, response)) {
+            if (resource.fire(wrapper.getStatus(), wrapper)) {
                 return;
             }
         }
@@ -76,6 +86,6 @@ Ext.define('Mba.ux.HttpListener.Manager', {
             global = this.getGlobal();
         }
 
-        global.fire(response.status, response);
+        global.fire(wrapper.getStatus(), wrapper);
     }
 });

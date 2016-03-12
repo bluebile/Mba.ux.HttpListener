@@ -22,8 +22,7 @@ Ext.define('Mba.ux.HttpListener.rule.Default', {
      * @param name
      * @returns {string}
      */
-    normalizeName: function(name)
-    {
+    normalizeName: function(name) {
         var normalizeName = name.toLowerCase();
 
         if (normalizeName.indexOf('_') != -1) {
@@ -42,11 +41,10 @@ Ext.define('Mba.ux.HttpListener.rule.Default', {
     /**
      *
      * @param {string|integer} event
-     * @param {object} response
+     * @param {Mba.ux.HttpListener.WrapperAbstract} wrapper
      */
-    fire: function(event, response)
-    {
-        if (!this.filter(response)) {
+    fire: function(event, wrapper) {
+        if (!this.filter(wrapper)) {
             return false;
         }
 
@@ -61,14 +59,13 @@ Ext.define('Mba.ux.HttpListener.rule.Default', {
 
         var eventName = this.normalizeName(event);
 
-        this.getListener()[eventName](response);
+        this.getListener()[eventName](wrapper.getResponse());
 
         return true;
     },
 
     // @private
-    filter: function(response)
-    {
+    filter: function(wrapper) {
         return true;
     }
 });
