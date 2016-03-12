@@ -4,21 +4,39 @@
 Ext.define('Mba.ux.HttpListener.rule.Resource', {
 
     extend: 'Mba.ux.HttpListener.rule.Default',
-    maps: [],
+    mapsCollection: [],
+
+    config: {
+        maps: null
+    },
+
+    updateMaps: function(maps, currentMap)
+    {
+        if (maps) {
+            if (!Ext.isArray(maps)) {
+                throw 'Maps not array.';
+            }
+
+            var i, length, map;
+            for (i = 0, length = maps.length; i < length; i++) {
+                map = maps[i];
+
+                if (!map.resource || !map.listener) {
+                    throw 'Property \'resource\' and \'listener\' is required.';
+                }
+                this.addMap(map.resource, map.listener);
+            }
+        }
+    },
 
     /**
      * @param {String/RegExp} resource
-     * @param {Mba.ux.HttpListener.ListenerAbstract} listener
+     * @param {string} listenerClass
      */
-    addMap: function(resource, listener)
+    addMap: function(resource, listenerClass)
     {
-
-        if (!Ext.isObject(listener)) {
-            throw 'Listener not object.';
-        }
-
-        if (!(listener instanceof Mba.ux.HttpListener.ListenerAbstract)) {
-            throw 'Not object.';
+        if (!Ext.isString(listenerClass)) {
+            throw 'Assign className listener.';
         }
 
         if (!resource instanceof RegExp) {
@@ -27,20 +45,20 @@ Ext.define('Mba.ux.HttpListener.rule.Resource', {
 
         var object = {
             rule: resource,
-            listener: listener
+            listener: listenerClass
         };
 
-        this.maps.push(object);
+        this.mapsCollection.push(object);
     },
 
     // @private
     filter: function(response)
     {
         var map;
-        for (var i = 0, length = this.maps.length; i < length; i++) {
-            map = this.maps[i];
+        for (var i = 0, length = this.mapsCollection.length; i < length; i++) {
+            map = this.mapsCollection[i];
             if (map.rule.test(response.request.options.url)) {
-                this.setListener(map.listener);
+                this.setListener(Ext.create(map.listener));
                 return true;
             }
         }
