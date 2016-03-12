@@ -65,7 +65,8 @@ Ext.define('Mba.ux.HttpListener.Manager', {
         var instance;
         for (var wrapper in this.wrappersInstances) {
             instance = this.wrappersInstances[wrapper];
-            instance.on('run', 'parse');
+            instance.run();
+            instance.on('run', this.parse, this);
         }
     },
 
