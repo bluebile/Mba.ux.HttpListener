@@ -1,4 +1,6 @@
 /**
+ * Classe responsável por mapear listener de acordo com recurso(url)
+ *
  * @class Mba.ux.HttpListener.rule.Resource
  * @extends Mba.ux.HttpListener.rule.Default
  */
@@ -63,6 +65,8 @@ Ext.define('Mba.ux.HttpListener.rule.Resource', {
     },
 
     /**
+     * @method
+     * Filtragem de acordo com recurso(url)
      * @inheritdoc #filter
      */
     filter: function(wrapper)

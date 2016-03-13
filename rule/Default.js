@@ -6,8 +6,18 @@ Ext.define('Mba.ux.HttpListener.rule.Default', {
     statics: {
         EVENTS: {
             OK: 200,
+            CREATED: 201,
+            ACCEPTED: 202,
+            FOUND: 302,
+            BAD_REQUEST: 400,
+            UNAUTHORIZED: 401,
+            FORBIDDEN: 403,
             NOT_FOUND: 404,
-            RUNTIME: 500
+            METHOD_NOT_ALLOWED: 405,
+            INTERNAL_ERROR: 500,
+            METHOD_NOT_IMPLEMENTED: 501,
+            BAD_GATEWAY: 502,
+            SERVICE_UNAVAILABLE: 503
         }
     },
 
@@ -70,6 +80,8 @@ Ext.define('Mba.ux.HttpListener.rule.Default', {
     },
 
     /**
+     * @method
+     * Método para ser sobreescrito, para filtragem de acordo com a resposta na classe que herda
      * @param {Mba.ux.HttpListener.wrapper.WrapperAbstract} wrapper
      * @return {Boolean}
      */

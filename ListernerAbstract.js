@@ -1,20 +1,86 @@
 /**
- * Classe base com listeners já implementados sem necessidade de escrever todos
+ * Classe base Listener que mapea os Status code Http, já implementa os sem necessidade de escrever todos
  *
  * @class Mba.ux.HttpListener.ListenerAbstract
  * @abstract
  */
 Ext.define('Mba.ux.HttpListener.ListenerAbstract', {
 
-    ok: function()
-    {
-    },
+    /**
+     * @method
+     * Mapea status 200
+     */
+    ok: Ext.emptyFn,
 
-    notFound: function()
-    {
-    },
+    /**
+     * @method
+     * Mapea status 201
+     */
+    created: Ext.emptyFn,
 
-    runtime: function()
-    {
-    }
+    /**
+     * @method
+     * Mapea status 202
+     */
+    accepted: Ext.emptyFn,
+
+    /**
+     * @method
+     * Mapea status 302
+     */
+    found: Ext.emptyFn,
+
+    /**
+     * @method
+     * Mapea status 400
+     */
+    badRequest: Ext.emptyFn,
+
+    /**
+     * @method
+     * Mapea status 401
+     */
+    unauthorized: Ext.emptyFn,
+
+    /**
+     * @method
+     * Mapea status 403
+     */
+    forbidden: Ext.emptyFn,
+
+    /**
+     * @method
+     * Mapea status 404
+     */
+    notFound: Ext.emptyFn,
+
+    /**
+     * @method
+     * Mapea status 405
+     */
+    methodNotAllowed: Ext.emptyFn,
+
+    /**
+     * @method
+     * Mapea status 500
+     */
+    internalError: Ext.emptyFn,
+
+    /**
+     * @method
+     * Mapea status 501
+     */
+    methodNotImplemented: Ext.emptyFn,
+
+    /**
+     * @method
+     * Mapea status 502
+     */
+    badGateway: Ext.emptyFn,
+
+    /**
+     * @method
+     * Mapea status 503
+     */
+    serviceUnavailable: Ext.emptyFn
 });
