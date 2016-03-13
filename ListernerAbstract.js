@@ -1,5 +1,5 @@
 /**
- * Classe base Listener que mapea os Status code Http, já implementa os sem necessidade de escrever todos
+ * Classe base Listener que mapea os Status code Http em métodos, já implementa os métodos sem necessidade de escrever todos
  *
  * @class Mba.ux.HttpListener.ListenerAbstract
  * @abstract
