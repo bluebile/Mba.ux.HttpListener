@@ -12,6 +12,9 @@ Ext.define('Mba.ux.HttpListener.rule.Default', {
     },
 
     config: {
+        /**
+         * @cfg {Mba.ux.HttpListener.ListenerAbstract} listener
+         */
         listener: null
     },
 
@@ -39,9 +42,11 @@ Ext.define('Mba.ux.HttpListener.rule.Default', {
     },
 
     /**
-     *
+     * @method
+     * Executa um método do listener atribuído {@link #listener} de acordo com status code HTTP retornado
      * @param {string|integer} event
      * @param {Mba.ux.HttpListener.WrapperAbstract} wrapper
+     * @return {Boolean}
      */
     fire: function(event, wrapper) {
         if (!this.filter(wrapper)) {
@@ -64,7 +69,10 @@ Ext.define('Mba.ux.HttpListener.rule.Default', {
         return true;
     },
 
-    // @private
+    /**
+     * @param {Mba.ux.HttpListener.wrapper.WrapperAbstract} wrapper
+     * @return {Boolean}
+     */
     filter: function(wrapper) {
         return true;
     }

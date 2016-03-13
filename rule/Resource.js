@@ -1,12 +1,21 @@
 /**
  * @class Mba.ux.HttpListener.rule.Resource
+ * @extends Mba.ux.HttpListener.rule.Default
  */
 Ext.define('Mba.ux.HttpListener.rule.Resource', {
 
     extend: 'Mba.ux.HttpListener.rule.Default',
+
+    /**
+     * @property {Array} mapsCollection
+     * Coleção de 'urls' e 'listeners'
+     */
     mapsCollection: [],
 
     config: {
+        /**
+         * @cfg {Array} maps
+         */
         maps: null
     },
 
@@ -30,6 +39,8 @@ Ext.define('Mba.ux.HttpListener.rule.Resource', {
     },
 
     /**
+     * @method
+     * Adiciona mapeamento entre uma 'url' e uma classe 'listener'
      * @param {String/RegExp} resource
      * @param {string} listenerClass
      */
@@ -51,7 +62,9 @@ Ext.define('Mba.ux.HttpListener.rule.Resource', {
         this.mapsCollection.push(object);
     },
 
-    // @private
+    /**
+     * @inheritdoc #filter
+     */
     filter: function(wrapper)
     {
         var map;
