@@ -21,7 +21,7 @@ Ext.define('Mba.ux.HttpListener.rule.Resource', {
         maps: null
     },
 
-    updateMaps: function(maps, currentMap)
+    updateMaps: function(maps)
     {
         if (maps) {
             if (!Ext.isArray(maps)) {
@@ -52,8 +52,8 @@ Ext.define('Mba.ux.HttpListener.rule.Resource', {
             throw 'Assign className listener.';
         }
 
-        if (!resource instanceof RegExp) {
-            resource = new RegExp(recource, 'g');
+        if (!(resource instanceof RegExp)) {
+            resource = new RegExp(resource, 'g');
         }
 
         var object = {
