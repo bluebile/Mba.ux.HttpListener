@@ -1,4 +1,7 @@
 /**
+ * Classe responsável por gerenciar as regras 'geral' {@link Mba.ux.HttpListener.rule.Default}
+ * de listener com Http Status Code e de acordo com o recurso(url) {@link Mba.ux.HttpListener.rule.Resource}
+ *
  * @class Mba.ux.HttpListener.Manager
  * @alternateClassName Mba.HttpListener
  */
@@ -11,10 +14,17 @@ Ext.define('Mba.ux.HttpListener.Manager', {
         'Mba.ux.HttpListener.rule.Default'
     ],
 
+    /**
+     * @property {Object} wrappersClass
+     * Mapeamento entre um alias e nome classe Wrappers disponíveis em Mba.ux.wrapper.*
+     */
     wrappersClass: {
         ajax: 'Mba.ux.HttpListener.wrapper.Ajax'
     },
 
+    /**
+     * @property {Object} wrappersInstances
+     */
     wrappersInstances: {},
 
     config: {
@@ -44,6 +54,13 @@ Ext.define('Mba.ux.HttpListener.Manager', {
         }
     },
 
+    /**
+     * Adiciona uma instância de um wrapper {@link #wrappersInstances}
+     * Este permite criar um objeto de acordo com o alias {@link #wrappersClass}, também cria
+     *
+     * @param {String/Mba.ux.HttpListener.wrapper.WrapperAbstract} type
+     * @return {Mba.ux.HttpListener.wrapper.WrapperAbstract}
+     */
     addWrapper: function(type) {
         var className = type, instance;
 
@@ -51,12 +68,28 @@ Ext.define('Mba.ux.HttpListener.Manager', {
             className = this.wrappersClass[type];
         }
 
+        instance = this.addWrapperInstance(className);
+        return this.wrappersInstances[instance.$className] = instance;
+    },
+
+    /**
+     * @private
+     * @method
+     * Cria o objeto wrapper ou retorna um já criado
+     * @param {String} className
+     * @return {Mba.ux.HttpListener.wrapper.WrapperAbstract}
+     */
+    createWrapperInstance: function(className) {
+        var instance;
+
         if (className in this.wrappersInstances) {
             return this.wrappersInstances[className];
         }
 
-        instance = Ext.create(className);
-        this.wrappersInstances[instance.$className] = instance;
+        instance = className;
+        if (!Ext.isObject(className)) {
+            instance = Ext.create(className);
+        }
 
         return instance;
     },
