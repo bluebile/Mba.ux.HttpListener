@@ -26,6 +26,12 @@ Ext.define('Mba.ux.HttpListener.ListenerAbstract', {
 
     /**
      * @method
+     * Mapea status 204
+     */
+    noContent: Ext.emptyFn,
+
+    /**
+     * @method
      * Mapea status 302
      */
     found: Ext.emptyFn,
