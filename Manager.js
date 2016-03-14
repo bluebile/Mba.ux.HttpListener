@@ -4,8 +4,11 @@
  *
  * @class Mba.ux.HttpListener.Manager
  * @alternateClassName Mba.HttpListener
+ * @extends Ext.Evented
  */
 Ext.define('Mba.ux.HttpListener.Manager', {
+
+    extend: 'Ext.Evented',
 
     alternateClassName: 'Mba.HttpListener',
 
