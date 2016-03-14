@@ -68,7 +68,7 @@ Ext.define('Mba.ux.HttpListener.Manager', {
             className = this.wrappersClass[type];
         }
 
-        instance = this.addWrapperInstance(className);
+        instance = this.createWrapperInstance(className);
         return this.wrappersInstances[instance.$className] = instance;
     },
 
