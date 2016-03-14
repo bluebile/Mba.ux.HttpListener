@@ -28,6 +28,11 @@ var manager = Ext.create('Mba.ux.HttpListener.Manager', {
 
 manager.addWrapper('ajax');
 manager.run();
+
+Ext.Ajax.request({
+    url: 'test'
+});
+
 ```
 
 
