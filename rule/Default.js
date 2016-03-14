@@ -33,6 +33,24 @@ Ext.define('Mba.ux.HttpListener.rule.Default', {
         this.initConfig(config);
     },
 
+    applyListener: function(listener) {
+        if (Ext.isString(listener)) {
+            return Ext.create(listener);
+        }
+
+        if (Ext.isObject(listener)) {
+            if (!listener.xclass) {
+                return listener;
+            }
+
+            var className = listener.xclass;
+            delete listener.xclass;
+            return Ext.create(className, listener);
+        }
+
+        return listener;
+    },
+
     /**
      * Normaliza o nome coloca camelcase a separacao por underscore
      * @private
