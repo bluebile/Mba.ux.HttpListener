@@ -62,6 +62,12 @@ Ext.define('Mba.ux.HttpListener.ListenerAbstract', {
 
     /**
      * @method
+     * Mapea status 412
+     */
+    preconditionFailed: Ext.emptyFn,
+
+    /**
+     * @method
      * Mapea status 500
      */
     internalError: Ext.emptyFn,

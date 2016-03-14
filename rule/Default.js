@@ -14,6 +14,7 @@ Ext.define('Mba.ux.HttpListener.rule.Default', {
             FORBIDDEN: 403,
             NOT_FOUND: 404,
             METHOD_NOT_ALLOWED: 405,
+            PRECONDITION_FAILED: 412,
             INTERNAL_ERROR: 500,
             METHOD_NOT_IMPLEMENTED: 501,
             BAD_GATEWAY: 502,
