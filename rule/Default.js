@@ -19,7 +19,8 @@ Ext.define('Mba.ux.HttpListener.rule.Default', {
             INTERNAL_ERROR: 500,
             METHOD_NOT_IMPLEMENTED: 501,
             BAD_GATEWAY: 502,
-            SERVICE_UNAVAILABLE: 503
+            SERVICE_UNAVAILABLE: 503,
+            GATEWAY_TIMEOUT: 504
         }
     },
 
