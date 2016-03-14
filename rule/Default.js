@@ -29,6 +29,10 @@ Ext.define('Mba.ux.HttpListener.rule.Default', {
         listener: null
     },
 
+    constructor: function(config) {
+        this.initConfig(config);
+    },
+
     /**
      * Normaliza o nome coloca camelcase a separacao por underscore
      * @private
