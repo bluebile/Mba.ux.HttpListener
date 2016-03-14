@@ -43,11 +43,11 @@ Ext.define('Mba.ux.HttpListener.Manager', {
     },
 
     applyResource: function(resource, currentResource) {
-        return Ext.factory(resource, Mba.ux.HttpListener.rule.Resource, currentResource, 'proxy');
+        return Ext.factory(resource, Mba.ux.HttpListener.rule.Resource, currentResource, 'resouce');
     },
 
     applyGlobal: function(global, currentGlobal) {
-        return Ext.factory(global, Mba.ux.HttpListener.rule.Default, currentGlobal, 'proxy');
+        return Ext.factory(global, Mba.ux.HttpListener.rule.Default, currentGlobal, 'global');
     },
 
     updateGlobal: function(global, currentGlobal) {
