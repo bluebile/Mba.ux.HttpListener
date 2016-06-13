@@ -92,6 +92,12 @@ Ext.define('Mba.ux.HttpListener.ListenerAbstract', {
 
     /**
      * @method
+     * Mapea status 406
+     */
+    notAcceptable: Ext.emptyFn,
+
+    /**
+     * @method
      * Mapea status 503
      */
     serviceUnavailable: Ext.emptyFn,
