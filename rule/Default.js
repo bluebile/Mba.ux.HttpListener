@@ -21,7 +21,9 @@ Ext.define('Mba.ux.HttpListener.rule.Default', {
             BAD_GATEWAY: 502,
             SERVICE_UNAVAILABLE: 503,
             GATEWAY_TIMEOUT: 504,
-            NOT_ACCEPTABLE: 406
+            NOT_ACCEPTABLE: 406,
+            TEAPOT: 418,
+            LOCKED: 423
         }
     },
 

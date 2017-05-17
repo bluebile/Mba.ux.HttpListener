@@ -106,5 +106,17 @@ Ext.define('Mba.ux.HttpListener.ListenerAbstract', {
      * @method
      * Mapea status 504
      */
-    gatewayTimeout: Ext.emptyFn
+    gatewayTimeout: Ext.emptyFn,
+
+    /**
+     * @method
+     * Mapea status 418
+     */
+    teapot: Ext.emptyFn,
+
+    /**
+     * @method
+     * Mapea status 423
+     */
+    locked: Ext.emptyFn
 });
